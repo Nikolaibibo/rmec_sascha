@@ -26,8 +26,8 @@ var isPowered = false;
 var waittime = 10000;
 
 // hastag/searchterm for API
-//var searchTerm = "nodejs";
-var searchTerm = "#Sascha,#nsa,#angelamerkel,#dasinternetistkaputt,#habenichtszuverbergen,#lassunsreden";
+var searchTerm = "#nsa,#netzpolitik,#dasinternetistkaputt,#habenichtszuverbergen,#trolle,#empörungsgesellschaft";
+//var searchTerm = "#Sascha,#nsa,#angelamerkel,#dasinternetistkaputt,#habenichtszuverbergen,#lassunsreden";
 
 
 function powerUp () {
