@@ -3,8 +3,7 @@ var pfio = require('piface-node');
 
 pfio.init();
 
-// config for strings, credentials for twitter, twilio and pushbullet git ignored
-var config = require('./config.json');
+// credentials for twitter git ignored
 var credentials = require('./credentials_sascha.json');
 
 var client = new Twitter({
@@ -14,9 +13,7 @@ var client = new Twitter({
   access_token_secret: credentials.twitter_access_token_secret
 });
 
-// var for not sending too much sms - by now with bad setTimeout
 // TODO: change for performance
-var isBusy = false;
 var isPowered = false;
 var waittime = 10000;
 var pumpTime = 1100;
@@ -44,7 +41,7 @@ function doReset () {
 // start reading stream
 function startStream (conn) {
 
-  console.log("LASS DIE HELDEN HEULEN - #alice");
+  console.log("LASS DIE HELDEN HEULEN - #Sascha");
 	console.log("searching for hashtags: " + searchTerm);
 
  	client.stream('statuses/filter', {track:searchTerm}, function(stream) {
@@ -56,18 +53,10 @@ function startStream (conn) {
 		});
 
 		stream.on('error', function(error) {
-      //sendAlertNotification();
-      // sendSMS("nodejs server error!");
       powerDown();
       throw error;
-  		});
+  	});
 	});
-}
-
-// reset status
-function resetStatus () {
-  console.log("resetStatus");
-  isBusy = false;
 }
 
 // go
